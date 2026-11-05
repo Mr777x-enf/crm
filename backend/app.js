@@ -1,0 +1,23 @@
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import customerRoutes from './routes/customerRoutes.js';
+import interactionRoutes from './routes/interactionRoutes.js';
+import followupRoutes from './routes/followupRoutes.js';
+import bookingRoutes from './routes/bookingRoutes.js';
+import dashboardRoutes from './routes/dashboardRoutes.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+
+const app = express();
+app.use(cors({ origin: process.env.FRONTEND_URL || true }));
+app.use(express.json());
+app.use(morgan('dev'));
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+app.use('/api/customers', customerRoutes);
+app.use('/api/interactions', interactionRoutes);
+app.use('/api/followups', followupRoutes);
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use(notFound);
+app.use(errorHandler);
+export default app;

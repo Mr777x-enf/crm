@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Aarav Sharma",
+    "email": "aarav@example.com",
+    "phone": "+91 98765 43210",
+    "address": "12 Park Street, Mumbai",
+    "consent": { "email": true, "sms": true, "phoneCall": true, "preferredMethod": "Email" }
+  },
+  {
+    "name": "Meera Patel",
+    "email": "meera@example.com",
+    "phone": "+91 91234 56789",
+    "address": "45 Lake Road, Pune",
+    "consent": { "email": true, "sms": false, "phoneCall": true, "preferredMethod": "Phone" }
+  }
+]
